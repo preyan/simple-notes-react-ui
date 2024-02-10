@@ -1,7 +1,13 @@
 import './App.css';
+import Layout from './components/Layout';
+import Routing from './routes/Routing';
 
 function App() {
-  return <h1>Simple Notes</h1>;
+  return (
+    <>
+      <Layout />
+    </>
+  );
 }
 
 export default App;

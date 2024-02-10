@@ -1,10 +1,10 @@
-import React from 'react';
-
 const Footer = () => {
   return (
-    <footer className='bg-gray-200 py-4'>
+    <footer className='bg-gray-100 border-t border-gray-300 py-4'>
       <div className='container mx-auto flex justify-center items-center'>
-        <p className='text-gray-600'>Footer</p>
+        <p className='text-xs text-gray-600'>
+          Made with <span className='text-red-500'>&hearts;</span> by Your Name
+        </p>
       </div>
     </footer>
   );

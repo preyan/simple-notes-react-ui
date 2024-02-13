@@ -1,29 +1,99 @@
-import React from 'react';
+import { Button, Modal, TextInput } from 'flowbite-react';
+import { SiGooglekeep } from 'react-icons/si';
+import { Link } from 'react-router-dom';
 
-const Login = () => {
+const Login = ({ isLoginModalOpen, setIsLoginModalOpen }) => {
   return (
-    <div className='flex flex-col items-center justify-center h-screen'>
-      <h1 className='text-3xl font-bold mb-4'>Login</h1>
-      <form className='w-1/3'>
-        <input
-          type='text'
-          placeholder='Email or Username'
-          className='w-full p-2 mb-4 border border-gray-300 rounded'
-        />
-        <input
-          type='password'
-          placeholder='Password'
-          className='w-full p-2 mb-4 border border-gray-300 rounded'
-        ></input>
-
-        <button
-          type='submit'
-          className='w-full py-2 bg-blue-500 text-white rounded hover:bg-blue-600'
-        >
-          Login
-        </button>
-      </form>
-    </div>
+    <>
+      <Modal
+        show={isLoginModalOpen}
+        size='md'
+        onClose={() => setIsLoginModalOpen(false)}
+        popup
+      >
+        <Modal.Body>
+          <section className='bg-gray-50 dark:bg-gray-900 text-center w-max h-max overflow-hidden '>
+            <div className='flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0'>
+              {/* <Link
+                className='flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white'
+                to='/login'
+              >
+                <SiGooglekeep className='w-11 h-11 text-yellow-400 hover:bg-transparent' />
+                Simple Notes
+              </Link> */}
+              <div className='w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700'>
+                <div className='p-6 space-y-4 md:space-y-6 sm:p-8'>
+                  <h1 className='text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white'>
+                    Sign in to your account
+                  </h1>
+                  <form className='space-y-4 md:space-y-6' action='#'>
+                    <div>
+                      <TextInput
+                        type='email'
+                        name='email'
+                        id='email'
+                        className='bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
+                        placeholder='Email or Username'
+                        required
+                      />
+                    </div>
+                    <div>
+                      <TextInput
+                        type='password'
+                        name='password'
+                        id='password'
+                        placeholder='Password '
+                        className='bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
+                        required
+                      />
+                    </div>
+                    <div className='flex items-center justify-between'>
+                      <div className='flex items-start'>
+                        <div className='flex items-center h-5'>
+                          <input
+                            id='remember'
+                            aria-describedby='remember'
+                            type='checkbox'
+                            className='w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800'
+                            required
+                          />
+                        </div>
+                        <div className='ml-3 text-sm'>
+                          <label
+                            htmlFor='remember'
+                            className='text-gray-500 dark:text-gray-300'
+                          >
+                            Remember me
+                          </label>
+                        </div>
+                      </div>
+                      {/* <Link className='text-sm font-medium text-primary-600 hover:underline dark:text-primary-500'>
+                        Forgot password?
+                      </Link> */}
+                    </div>
+                    <Button
+                      type='submit'
+                      className='w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800'
+                    >
+                      Sign in
+                    </Button>
+                    <p className='text-sm font-light text-gray-500 dark:text-gray-400'>
+                      {`Don’t have an account yet?`}{' '}
+                      {/* <Link
+                        className='font-medium text-primary-600 hover:underline dark:text-primary-500'
+                        to='/register'
+                      >
+                        Sign up
+                      </Link> */}
+                    </p>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </section>
+        </Modal.Body>
+      </Modal>
+    </>
   );
 };
 
